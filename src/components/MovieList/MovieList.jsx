@@ -24,6 +24,7 @@ function MovieList() {
         console.log('You clicked a movie!!');
         dispatch({type: 'FETCH_DETAILS', payload: movie.id})
         history.push('/details')
+
     }
 
     return (
@@ -34,7 +35,7 @@ function MovieList() {
                     {movies.map(movie => {
                         return (
                             <Grid className="poster-grid" item xs={3}>
-                                
+
                                     <div className="poster" key={movie.id} >
                                         <Card onClick = {() => toDetails(movie)}elevation={10}>
                                         <CardActionArea>
