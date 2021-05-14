@@ -14,9 +14,9 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const toDetails = (event) => {
+    const toDetails = (movie) => {
         // need to figure out how to send it to specific movie detail page
-        console.log('You clicked a movie!!');
+        console.log(`You clicked a movie!!`);
     }
 
     return (
@@ -27,7 +27,7 @@ function MovieList() {
                     {movies.map(movie => {
                         return (
                             <Grid className="poster-grid" item xs={3}>
-                                <Card onClick = {toDetails}elevation={10}>
+                                <Card onClick = {(movie) => toDetails(movie)}elevation={10}>
                                     <div className="poster" key={movie.id} >
                                         <h3>{movie.title}</h3>
                                         <img src={movie.poster} alt={movie.title}/>
