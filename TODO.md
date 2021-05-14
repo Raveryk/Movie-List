@@ -15,16 +15,16 @@ DEPENDENCIES
 HOME/LIST PAGE
 [ ] Material UI
     [ ] Cards/Grid for movie posters list
-[ ] On poster click => /details route should execute => HashRouter/Routes/Link
+[x] On poster click => /details route should execute => HashRouter/Routes/Link
 
 [ ] Figure out way to get to ADD MOVIE page 
 
 
 ----Create new branch----
 DETAILS PAGE
-[ ] Shows ALL details for the given movie
-    [ ] GET request w/ req.params and :id to specify movie type ( look into this! )
-    [ ] Data stored in redux
+[x] Shows ALL details for the given movie
+    [x] GET request w/ req.params and :id to specify movie type ( look into this! )
+    [x] Data stored in redux
 [ ] Back to List button
 
 ----Create new branch----
