@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import './MovieList.css'
 
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button'
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 
@@ -29,6 +30,8 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
+            <Button onClick={() => history.push('/add')}>Add Movie</Button>
+            
             
                 <section className="movies">
                     {movies.map(movie => {
