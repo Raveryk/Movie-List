@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -16,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 function Details() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     // grabbing details from reducer
     const details = useSelector( store => store.details );
@@ -23,10 +25,11 @@ function Details() {
     console.log(details);
 
 
-    // useEffect(() => {
-    //     dispatch({type: 'FETCH_DETAILS'})
-    // })
+    const toList = () => {
+        dispatch({type: 'CLEAR_DETAILS', payload: []});
+        history.push('/');
 
+    }
 
 
     return(
@@ -52,7 +55,7 @@ function Details() {
             </div>
         
 
-            <Button>Back to List</Button>
+            <Button onClick={toList}>Back to List</Button>
     
 
         </>
