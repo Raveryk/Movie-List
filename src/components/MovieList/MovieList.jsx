@@ -31,12 +31,14 @@ function MovieList() {
                     {movies.map(movie => {
                         return (
                             <Grid className="poster-grid" item xs={3}>
-                                <Card onClick = {(movie) => toDetails(movie)}elevation={10}>
+                                
                                     <div className="poster" key={movie.id} >
+                                        <Card onClick = {() => toDetails(movie)}elevation={10}>
                                         <h3>{movie.title}</h3>
                                         <img src={movie.poster} alt={movie.title}/>
+                                        </Card>
                                     </div>
-                                </Card>
+                                
                             </Grid>
                         );
                     })}

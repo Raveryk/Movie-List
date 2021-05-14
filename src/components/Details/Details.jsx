@@ -9,6 +9,8 @@ function Details() {
     // grabbing details from reducer
     const details = useSelector( store => store.details );
 
+    console.log(details);
+
 
     // useEffect(() => {
     //     dispatch({type: 'FETCH_DETAILS'})
@@ -18,9 +20,12 @@ function Details() {
 
     return(
         <>
-        <p>
-            {details.title}
-        </p>
+            {details.map(movie => {
+                return <div><p>{movie.title}</p>
+                        <p><img src={movie.poster}/></p>
+                        <p>{movie.description}</p></div>
+            })}
+    
 
         </>
     )

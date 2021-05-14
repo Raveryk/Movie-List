@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
 
 // GET route to select specific movie with specific details from DB
 router.get('/details/:id', (req, res) => {
+  console.log(req.params.id);
 
   const query =  `SELECT movies.title, movies.poster, movies.description, ARRAY_AGG(genres.name) as genres FROM movies
                   JOIN movies_genres ON movies_genres.movie_id = movies.id
