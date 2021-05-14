@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -14,16 +17,22 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
-            <section className="movies">
-                {movies.map(movie => {
-                    return (
-                        <div key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
-                        </div>
-                    );
-                })}
-            </section>
+            
+                <section className="movies">
+                    {movies.map(movie => {
+                        return (
+                            <Grid className="poster-grid" item xs={3}>
+                                <Card elevation={10}>
+                                    <div className="poster" key={movie.id} >
+                                        <h3>{movie.title}</h3>
+                                        <img src={movie.poster} alt={movie.title}/>
+                                    </div>
+                                </Card>
+                            </Grid>
+                        );
+                    })}
+                </section>
+            
         </main>
 
     );
