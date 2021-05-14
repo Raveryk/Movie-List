@@ -16,6 +16,26 @@ router.get('/', (req, res) => {
 
 });
 
+
+// GET route to select specific movie with specific details from DB
+router.get('/details/:id', (req, res) => {
+  console.log(req.params.id);
+
+  const query =  `SELECT movies.title, movies.poster, movies.description, ARRAY_AGG(genres.name) as genres FROM movies
+                  JOIN movies_genres ON movies_genres.movie_id = movies.id
+                  JOIN genres ON genres.id = movies_genres.genre_id
+                  WHERE movies.id = $1
+                  GROUP BY movies.title, movies.poster, movies.description;`;
+  pool.query(query, [req.params.id])
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch( err => {
+      console.log('Error getting details from DB.', err)
+      res.sendStatus(500);
+    })
+})
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
