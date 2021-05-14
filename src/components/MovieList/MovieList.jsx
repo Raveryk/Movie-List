@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import './MovieList.css'
 
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +9,7 @@ import Card from '@material-ui/core/Card';
 function MovieList() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const movies = useSelector(store => store.movies);
 
     useEffect(() => {
@@ -17,6 +19,7 @@ function MovieList() {
     const toDetails = (event) => {
         // need to figure out how to send it to specific movie detail page
         console.log('You clicked a movie!!');
+        history.push('/details')
     }
 
     return (
