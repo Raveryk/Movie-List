@@ -5,21 +5,27 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button'
 
 import '../AddMovie/AddMovie.css';
 
-
+import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { Typography } from '@material-ui/core';
 
 
 function AddMovie() {
 
+const history = useHistory();
 const [genre, setGenre] = useState([]);
 console.log(genre);
 
 const handleChange = (event) => {
     setGenre(event.target.value);
+}
+
+const toList = () => {
+    history.push('/')
 }
 
 const genreNames = [
@@ -63,6 +69,8 @@ const genreNames = [
                 ))}
             </Select>
         </FormControl>
+        <Button onClick={() => toList()} variant="outlined" >Cancel</Button>
+        <Button variant="outlined" >Save</Button>
         </Card>
         
 
