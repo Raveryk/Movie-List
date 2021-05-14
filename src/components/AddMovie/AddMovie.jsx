@@ -17,10 +17,37 @@ import { Typography } from '@material-ui/core';
 function AddMovie() {
 
 const history = useHistory();
-const [genre, setGenre] = useState([]);
-console.log(genre);
 
-const handleChange = (event) => {
+const [title, setTitle] = useState('');
+// console.log(title)
+
+const [url, setURL] = useState('');
+// console.log(url)
+
+const [info, setInfo] = useState('');
+// console.log(info)
+
+const [genre, setGenre] = useState([]);
+// console.log(genre)
+
+
+const handleTitle = (event) => {
+    event.preventDefault()
+    setTitle(event.target.value);
+}
+
+const handleURL = (event) => {
+    event.preventDefault()
+    setURL(event.target.value);
+}
+
+const handleInfo = (event) => {
+    event.preventDefault()
+    setInfo(event.target.value);
+}
+
+const handleGenre = (event) => {
+    event.preventDefault()
     setGenre(event.target.value);
 }
 
@@ -51,10 +78,10 @@ const genreNames = [
         
         <Card className="addMovie" elevation={10}>
         <FormControl>
-            <TextField label="Movie Title" variant="outlined"/>
-            <TextField label="Poster URL" variant="outlined"/>
-            <TextField label="Description" multiline rows={5} variant="outlined"/>
-            <Select placeholder="Genre" multiple value={genre} onChange={handleChange}
+            <TextField label="Movie Title" variant="outlined" value={title} onChange={handleTitle}/>
+            <TextField label="Poster URL" variant="outlined" value={url} onChange={handleURL}/>
+            <TextField label="Description" multiline rows={5} variant="outlined" value={info} onChange={handleInfo}/>
+            <Select placeholder="Genre" multiple value={genre} onChange={handleGenre}
             renderValue={(selected) => (
                 <div>
                 {selected.map((value) => (
