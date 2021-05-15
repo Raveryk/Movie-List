@@ -41,7 +41,7 @@ function MovieList() {
                                         <Card onClick = {() => toDetails(movie)}elevation={10}>
                                         <CardActionArea>
                                         <h3>{movie.title}</h3>
-                                        <img src={movie.poster} alt={movie.title}/>
+                                        <img className="image" src={movie.poster} alt={movie.title}/>
                                         </CardActionArea>
                                         </Card>
                                     </div>

@@ -10,8 +10,9 @@
     padding: 3%;
 }
 
-/* .poster {
-
-} */
+.image {
+    max-width:250px;
+    max-height:250px;
+}
 
 
