@@ -12,14 +12,15 @@ import '../AddMovie/AddMovie.css';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { Typography } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
 
 
 function AddMovie() {
 
 const history = useHistory();
-
-const [newMovie, setNewMovie] = useState({title: '', url: '', info: '', genre: []});
-console.log(newMovie)
+const dispatch = useDispatch();
+const [newMovie, setNewMovie] = useState({title: '', poster: '', description: '', genre_id: []});
+// console.log(newMovie)
 
 
 
@@ -31,17 +32,17 @@ const handleTitle = (event) => {
 
 const handleURL = (event) => {
     event.preventDefault()
-    setNewMovie({...newMovie, url: event.target.value});
+    setNewMovie({...newMovie, poster: event.target.value});
 }
 
 const handleInfo = (event) => {
     event.preventDefault()
-    setNewMovie({...newMovie, info: event.target.value});
+    setNewMovie({...newMovie, description: event.target.value});
 }
 
 const handleGenre = (event) => {
     event.preventDefault()
-    setNewMovie({...newMovie, genre: event.target.value});
+    setNewMovie({...newMovie, genre_id: event.target.value});
 }
 
 const toList = () => {
@@ -50,6 +51,7 @@ const toList = () => {
 
 const handleSubmit = () => {
 
+dispatch({ type: 'ADD_MOVIE', payload: newMovie })
 
     // history.push('/')
 }
@@ -80,7 +82,7 @@ const genreNames = [
             <TextField label="Movie Title" variant="outlined" value={newMovie.title} onChange={handleTitle}/>
             <TextField label="Poster URL" variant="outlined" value={newMovie.url} onChange={handleURL}/>
             <TextField label="Description" multiline rows={5} variant="outlined" value={newMovie.info} onChange={handleInfo}/>
-            <Select placeholder="Genre" multiple value={newMovie.genre} onChange={handleGenre}
+            <Select placeholder="Genre" multiple value={newMovie.genre_id} onChange={handleGenre}
             renderValue={(selected) => (
                 <div>
                 {selected.map((value) => (
@@ -88,15 +90,15 @@ const genreNames = [
                 ))}
                 </div>
             )}>
-                {genreNames.map(name => (
-                    <MenuItem key={name} value={name}>
+                {genreNames.map((name, i) => (
+                    <MenuItem key={i} value={i}>
                         {name}
                     </MenuItem>
                 ))}
             </Select>
         </FormControl>
         <Button onClick={() => toList()} variant="outlined" >Cancel</Button>
-        <Button variant="outlined" >Save</Button>
+        <Button onClick={() => handleSubmit()}variant="outlined" >Save</Button>
         </Card>
         
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import '../Details/Details.css';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -45,7 +46,8 @@ function Details() {
                                 <p><img src={movie.poster} alt={movie.title}/></p>
                             </CardMedia>
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2"><p className="detail-title">{movie.title}</p></Typography>
+                                <Typography gutterBottom variant="h4" component="h2"><p className="detail-title">{movie.title}</p></Typography>
+                                <p className="detail-genre">{movie.genres.map(genre => {return <Typography gutterBottom >{genre}</Typography>})}</p>
                                 <Typography><p className="detail-description">{movie.description}</p></Typography>
                             </CardContent>
                             </CardActionArea>
