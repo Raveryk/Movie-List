@@ -18,41 +18,40 @@ function AddMovie() {
 
 const history = useHistory();
 
-const [title, setTitle] = useState('');
-// console.log(title)
+const [newMovie, setNewMovie] = useState({title: '', url: '', info: '', genre: []});
+console.log(newMovie)
 
-const [url, setURL] = useState('');
-// console.log(url)
 
-const [info, setInfo] = useState('');
-// console.log(info)
-
-const [genre, setGenre] = useState([]);
-// console.log(genre)
 
 
 const handleTitle = (event) => {
     event.preventDefault()
-    setTitle(event.target.value);
+    setNewMovie({...newMovie, title: event.target.value});
 }
 
 const handleURL = (event) => {
     event.preventDefault()
-    setURL(event.target.value);
+    setNewMovie({...newMovie, url: event.target.value});
 }
 
 const handleInfo = (event) => {
     event.preventDefault()
-    setInfo(event.target.value);
+    setNewMovie({...newMovie, info: event.target.value});
 }
 
 const handleGenre = (event) => {
     event.preventDefault()
-    setGenre(event.target.value);
+    setNewMovie({...newMovie, genre: event.target.value});
 }
 
 const toList = () => {
     history.push('/')
+}
+
+const handleSubmit = () => {
+
+
+    // history.push('/')
 }
 
 const genreNames = [
@@ -78,10 +77,10 @@ const genreNames = [
         
         <Card className="addMovie" elevation={10}>
         <FormControl>
-            <TextField label="Movie Title" variant="outlined" value={title} onChange={handleTitle}/>
-            <TextField label="Poster URL" variant="outlined" value={url} onChange={handleURL}/>
-            <TextField label="Description" multiline rows={5} variant="outlined" value={info} onChange={handleInfo}/>
-            <Select placeholder="Genre" multiple value={genre} onChange={handleGenre}
+            <TextField label="Movie Title" variant="outlined" value={newMovie.title} onChange={handleTitle}/>
+            <TextField label="Poster URL" variant="outlined" value={newMovie.url} onChange={handleURL}/>
+            <TextField label="Description" multiline rows={5} variant="outlined" value={newMovie.info} onChange={handleInfo}/>
+            <Select placeholder="Genre" multiple value={newMovie.genre} onChange={handleGenre}
             renderValue={(selected) => (
                 <div>
                 {selected.map((value) => (
