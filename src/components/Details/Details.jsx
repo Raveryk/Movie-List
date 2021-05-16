@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import '../Details/Details.css';
 
 import Button from '@material-ui/core/Button';
@@ -16,6 +16,15 @@ import Typography from '@material-ui/core/Typography';
 
 
 function Details() {
+
+    // grabbing dynamic part of Url 
+    let {id} = useParams();
+    console.log(id);
+
+    // using id to call the same movie id on page load.
+    useEffect(() => {
+        dispatch({type: 'FETCH_DETAILS', payload: id})
+    }, [])
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -33,31 +42,31 @@ function Details() {
     }
 
 
+
     return(
         <>
-        
+            <Button onClick={toList}>Back to List</Button>
             <div className="detail-card">
-            {details.map(movie => {
-            return  <Grid justify="center" alignItems="center" container sm={4}>
-                        <Card className="detail-card" elevation={10}>
-                            <CardActionArea>
-                            
-                            <CardMedia>
-                                <p><img src={movie.poster} alt={movie.title}/></p>
-                            </CardMedia>
-                            <CardContent>
-                                <Typography gutterBottom variant="h4" component="h2"><p className="detail-title">{movie.title}</p></Typography>
-                                <p className="detail-genre">{movie.genres.map(genre => {return <Typography gutterBottom >{genre}</Typography>})}</p>
-                                <Typography><p className="detail-description">{movie.description}</p></Typography>
-                            </CardContent>
-                            </CardActionArea>
-                       </Card>
-                    </Grid>
+            {details.map((movie, i) => {
+            return  <Card key ={i} className="detail-card" elevation={10}>
+                        <CardActionArea >
+                        
+                        <CardMedia>
+                            <p><img src={movie.poster} alt={movie.title}/></p>
+                        </CardMedia>
+                        <CardContent>
+                            <Typography gutterBottom variant="h4" component="h2">{movie.title}</Typography>
+                            <p className="detail-genre">{movie.genres.map((genre, i) => {return <Typography gutterBottom key={i}>{genre}</Typography>})}</p>
+                            <Typography><p className="detail-description">{movie.description}</p></Typography>
+                        </CardContent>
+                        </CardActionArea>
+                    </Card>
+                    
             })}
             </div>
         
 
-            <Button onClick={toList}>Back to List</Button>
+            
     
 
         </>

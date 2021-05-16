@@ -24,7 +24,7 @@ function MovieList() {
         // need to figure out how to send it to specific movie detail page
         console.log('You clicked a movie!!');
         dispatch({type: 'FETCH_DETAILS', payload: movie.id})
-        history.push('/details')
+        history.push(`/details/${movie.id}`)
     }
 
     return (
@@ -36,11 +36,10 @@ function MovieList() {
                 <section className="movies">
                     {movies.map(movie => {
                         return (
-                            <Grid className="poster-grid" item xs={3}>
+                            <Grid className="poster-grid" item xs={2}>
                                     <div className="poster" key={movie.id} >
-                                        <Card onClick = {() => toDetails(movie)}elevation={10}>
+                                        <Card onClick = {() => toDetails(movie)} elevation={20}>
                                         <CardActionArea>
-                                        <h3>{movie.title}</h3>
                                         <img className="image" src={movie.poster} alt={movie.title}/>
                                         </CardActionArea>
                                         </Card>

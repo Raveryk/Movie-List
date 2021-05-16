@@ -57,8 +57,9 @@ const toList = () => {
 const handleSubmit = () => {
 
 dispatch({ type: 'ADD_MOVIE', payload: newMovie })
+dispatch({ type: 'FETCH_MOVIES'})
 
-    // history.push('/')
+history.push('/')
 }
 
 
@@ -68,11 +69,14 @@ dispatch({ type: 'ADD_MOVIE', payload: newMovie })
 
         
         <Card className="addMovie" elevation={10}>
-        <FormControl>
-            <TextField label="Movie Title" variant="outlined" value={newMovie.title} onChange={handleTitle}/>
-            <TextField label="Poster URL" variant="outlined" value={newMovie.url} onChange={handleURL}/>
-            <TextField label="Description" multiline rows={5} variant="outlined" value={newMovie.info} onChange={handleInfo}/>
-            <Select placeholder="Genre" value={newMovie.genre_id} onChange={handleGenre}>
+            <div>
+        <FormControl spacing={2}>
+            <TextField className="titleForm" label="Movie Title" variant="outlined" value={newMovie.title} onChange={handleTitle}/>
+            <TextField className="posterForm" label="Poster URL" variant="outlined" value={newMovie.url} onChange={handleURL}/>
+            <TextField className="infoForm" label="Description" multiline rows={5} variant="outlined" value={newMovie.info} onChange={handleInfo}/>
+        <FormControl className="genreForm">
+            <InputLabel>Genre</InputLabel>
+            <Select className="genreForm" label="Genre" value={newMovie.genre_id} onChange={handleGenre}>
                 {genres.map((genre) => (
                     <MenuItem key={genre.id} value={genre.id}>
                         {genre.name}
@@ -80,8 +84,12 @@ dispatch({ type: 'ADD_MOVIE', payload: newMovie })
                 ))}
             </Select>
         </FormControl>
-        <Button onClick={() => toList()} variant="outlined" >Cancel</Button>
-        <Button onClick={() => handleSubmit()}variant="outlined" >Save</Button>
+        </FormControl>
+            </div>
+        <div className="btnGroup">
+            <Button onClick={() => toList()} variant="outlined" >Cancel</Button>
+            <Button onClick={() => handleSubmit()}variant="outlined" >Save</Button>
+        </div>
         </Card>
         
 

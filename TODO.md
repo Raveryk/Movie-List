@@ -25,20 +25,20 @@ DETAILS PAGE
 [x] Shows ALL details for the given movie
     [x] GET request w/ req.params and :id to specify movie type ( look into this! )
     [x] Data stored in redux
-[ ] Back to List button
+[x] Back to List button
 
 ----Create new branch----
 ADD MOVIE PAGE
-[ ] Form
-        [ ] movie title input
-        [ ] movie poster url input
-        [ ] text area for description
-        [ ] dropdown for genres (from DB)
+[x] Form
+        [x] movie title input
+        [x] movie poster url input
+        [x] text area for description
+        [x] dropdown for genres (from DB)
    
 [ ] Buttons
     [ ] Cancel => brings user to Home/List page
-    [ ] Save
-        [ ] POST to DB => server side POST route has been made, fyi.
+    [x] Save
+        [x] POST to DB => server side POST route has been made, fyi.
 
 
 REMEMBER
