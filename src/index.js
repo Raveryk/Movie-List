@@ -34,6 +34,7 @@ function* fetchAllMovies() {
 }
 
 function* fetchAllGenres() {
+    // get all the genres from DB
     try {
         const genres = yield axios.get('/api/genre');
         console.log('get all:', genres.data);
@@ -56,6 +57,7 @@ function* fetchDetails(action) {
 }
 
 function* addMovie(action) {
+    // Add movie to DB
     try {
         console.log(action.payload)
         yield axios.post('/api/movie', action.payload);
@@ -65,6 +67,7 @@ function* addMovie(action) {
 }
 
 function* editMovie(action) {
+    // Edit movie info for specific movie
     try {
         console.log('in edit:', action.payload)
         yield axios.put(`/api/movie/edit/${action.payload.id}`, action.payload.data)

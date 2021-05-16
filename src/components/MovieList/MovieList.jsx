@@ -8,19 +8,20 @@ import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 
 function MovieList() {
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const movies = useSelector((store) => store.movies);
-
+  // Get movies on page load
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+  // grab movies from redux to display
+  const movies = useSelector((store) => store.movies);
+
+  // send to details page of specific movie
   const toDetails = (movie) => {
-    // need to figure out how to send it to specific movie detail page
     console.log("You clicked a movie!!");
     dispatch({ type: "FETCH_DETAILS", payload: movie.id });
     history.push(`/details/${movie.id}`);
@@ -43,7 +44,11 @@ function MovieList() {
             return (
               <Grid className="poster-grid" item xs={2}>
                 <div key={movie.id}>
-                  <Card className="poster" onClick={() => toDetails(movie)} elevation={20}>
+                  <Card
+                    className="poster"
+                    onClick={() => toDetails(movie)}
+                    elevation={20}
+                  >
                     <CardActionArea>
                       <CardContent>
                         <img
