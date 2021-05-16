@@ -8,7 +8,7 @@ import Edit from '../Edit/Edit';
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <h1>THE MOVIES SAGA!</h1>
       
         <Router>       
           <Route path="/" exact>
