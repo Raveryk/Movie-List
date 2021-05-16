@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button'
 import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 
@@ -28,10 +29,8 @@ function MovieList() {
     }
 
     return (
-        <main>
-            <h1>MovieList</h1>
-            <Button onClick={() => history.push('/add')}>Add Movie</Button>
-            
+        <main className="listMain">
+                <Button className="addBtn" variant="outlined"  onClick={() => history.push('/add')}>Add Movie</Button>
             
                 <section className="movies">
                     {movies.map(movie => {
@@ -40,7 +39,9 @@ function MovieList() {
                                     <div className="poster" key={movie.id} >
                                         <Card onClick = {() => toDetails(movie)} elevation={20}>
                                         <CardActionArea>
-                                        <img className="image" src={movie.poster} alt={movie.title}/>
+                                            <CardContent>
+                                                <img className="image" src={movie.poster} alt={movie.title}/>
+                                            </CardContent>
                                         </CardActionArea>
                                         </Card>
                                     </div>

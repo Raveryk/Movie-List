@@ -4,9 +4,13 @@
 
 }
 
-/* .poster {
+.listMain {
+    background-color: whitesmoke;
+}
 
-} */
+.addBtn {
+    margin-top: 5%;
+}
 
 .poster-grid {
     justify-content:center;
