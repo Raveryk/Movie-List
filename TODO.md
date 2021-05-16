@@ -6,15 +6,15 @@ DATABASE
 
 DEPENDENCIES
     [x] npm install/ run server/ run client
-    [] figure out other things to import for:
-        [ ] React
-        [ ] Redux
-        [ ] Sagas
+    [x] figure out other things to import for:
+        [x] React
+        [x] Redux
+        [x] Sagas
     
 
 HOME/LIST PAGE
-[ ] Material UI
-    [ ] Cards/Grid for movie posters list
+[x] Material UI
+    [x] Cards/Grid for movie posters list
 [x] On poster click => /details route should execute => HashRouter/Routes/Link
 
 [ ] Figure out way to get to ADD MOVIE page 
@@ -35,12 +35,12 @@ ADD MOVIE PAGE
         [x] text area for description
         [x] dropdown for genres (from DB)
    
-[ ] Buttons
-    [ ] Cancel => brings user to Home/List page
+[x] Buttons
+    [x] Cancel => brings user to Home/List page
     [x] Save
         [x] POST to DB => server side POST route has been made, fyi.
 
 
 REMEMBER
-[ ] Comment code
+[x] Comment code
 [ ] Update ReadMe
