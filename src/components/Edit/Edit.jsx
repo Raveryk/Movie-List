@@ -53,7 +53,9 @@ function Edit() {
     }
 
     const saveButton = () => {
+        dispatch({ type: 'EDIT_MOVIE', payload: {id: id, data: editMovie } })
         history.push(`/details/${id}`)
+
     }
 
 

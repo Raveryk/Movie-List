@@ -16,7 +16,8 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_DETAILS', fetchDetails);
     yield takeEvery('ADD_MOVIE', addMovie);
-    yield takeEvery('FETCH_GENRES', fetchAllGenres)
+    yield takeEvery('FETCH_GENRES', fetchAllGenres);
+    yield takeEvery('EDIT_MOVIE', editMovie);
 }
 
 function* fetchAllMovies() {
@@ -60,6 +61,15 @@ function* addMovie(action) {
         yield axios.post('/api/movie', action.payload);
     } catch (error) {
         console.log('error sending movie to DB.', error)
+    }
+}
+
+function* editMovie(action) {
+    try {
+        console.log('in edit:', action.payload)
+        yield axios.put(`/api/movie/edit/${action.payload.id}`, action.payload.data)
+    } catch (error) {
+        console.log('error updating movie in DB.', error)
     }
 }
 
