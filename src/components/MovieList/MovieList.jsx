@@ -42,8 +42,8 @@ function MovieList() {
           {movies.map((movie) => {
             return (
               <Grid className="poster-grid" item xs={2}>
-                <div className="poster" key={movie.id}>
-                  <Card onClick={() => toDetails(movie)} elevation={20}>
+                <div key={movie.id}>
+                  <Card className="poster" onClick={() => toDetails(movie)} elevation={20}>
                     <CardActionArea>
                       <CardContent>
                         <img

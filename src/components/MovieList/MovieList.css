@@ -18,6 +18,11 @@
     padding: 3%;
 }
 
+.poster {
+    max-width:250px;
+    max-height:250px;
+    min-height: 250px;
+}
 .image {
     max-width:250px;
     max-height:250px;
