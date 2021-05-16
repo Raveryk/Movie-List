@@ -31,7 +31,7 @@ function MovieList() {
     <>
       <Button
         className="addBtn"
-        variant="outlined"
+        variant="contained"
         style={{ marginBottom: "10px" }}
         onClick={() => history.push("/add")}
       >
@@ -45,6 +45,7 @@ function MovieList() {
               <Grid className="poster-grid" item xs={2}>
                 <div key={movie.id}>
                   <Card
+                    style={{backgroundColor: "wheat"}}
                     className="poster"
                     onClick={() => toDetails(movie)}
                     elevation={20}

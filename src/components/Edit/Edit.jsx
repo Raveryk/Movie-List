@@ -56,13 +56,13 @@ function Edit() {
 
   return (
     <div className="editPage">
-      <Card className="editCard" elevation={10}>
+      <Card style={{backgroundColor: "wheat"}}className="editCard" elevation={10}>
         <Typography style={{ marginBottom: "10px" }}>EDIT INFO</Typography>
 
         <div>
           <FormControl spacing={2}>
             <TextField
-              style={{marginBottom:"10px"}}
+              style={{marginBottom:"10px", backgroundColor: "whitesmoke"}}
               className="titleEdit"
               label="Movie Title"
               variant="outlined"
@@ -71,6 +71,7 @@ function Edit() {
               onChange={handleTitle}
             />
             <TextField
+              style={{backgroundColor: "whitesmoke"}}
               className="infoForm"
               label="Description"
               multiline
@@ -83,10 +84,10 @@ function Edit() {
           </FormControl>
         </div>
         <div className="btnGroup">
-          <Button onClick={() => toDetail()} variant="outlined">
+          <Button color="default" onClick={() => toDetail()} variant="contained">
             Cancel
           </Button>
-          <Button onClick={() => saveButton()} variant="outlined">
+          <Button color="primary" onClick={() => saveButton()} variant="contained">
             Save
           </Button>
         </div>

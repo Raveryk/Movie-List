@@ -70,12 +70,12 @@ function AddMovie() {
 
   return (
     <div className="addPage">
-      <Card className="addMovie" elevation={10}>
+      <Card style={{backgroundColor: "wheat"}} className="addMovie" elevation={10}>
         <Typography style={{ marginBottom: "10px" }}>ADD A MOVIE</Typography>
         <div>
           <FormControl spacing={2}>
             <TextField
-              style={{marginBottom:"10px"}}
+              style={{marginBottom:"10px", backgroundColor: "whitesmoke"}}
               className="titleForm"
               label="Movie Title"
               variant="outlined"
@@ -83,7 +83,7 @@ function AddMovie() {
               onChange={handleTitle}
             />
             <TextField
-              style={{marginBottom:"10px"}}
+              style={{marginBottom:"10px", backgroundColor: "whitesmoke"}}
               className="posterForm"
               label="Poster URL"
               variant="outlined"
@@ -91,6 +91,7 @@ function AddMovie() {
               onChange={handleURL}
             />
             <TextField
+              style={{backgroundColor: "whitesmoke"}}
               className="infoForm"
               label="Description"
               multiline
@@ -102,6 +103,7 @@ function AddMovie() {
             <FormControl className="genreForm">
               <InputLabel>Genre</InputLabel>
               <Select
+                style={{backgroundColor: "whitesmoke"}}
                 className="genreForm"
                 label="Genre"
                 value={newMovie.genre_id}
@@ -117,10 +119,10 @@ function AddMovie() {
           </FormControl>
         </div>
         <div className="btnGroup">
-          <Button onClick={() => toList()} variant="outlined">
+          <Button onClick={() => toList()} variant="contained">
             Cancel
           </Button>
-          <Button onClick={() => handleSubmit()} variant="outlined">
+          <Button color="primary" onClick={() => handleSubmit()} variant="contained">
             Save
           </Button>
         </div>

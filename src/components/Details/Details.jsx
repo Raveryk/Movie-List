@@ -40,7 +40,7 @@ function Details() {
   return (
     <>
       <Button
-        variant="outlined"
+        variant="contained"
         style={{ marginBottom: "10px" }}
         onClick={toList}
       >
@@ -51,6 +51,7 @@ function Details() {
           {details.map((movie, i) => {
             return (
               <Card
+                style={{backgroundColor: "wheat"}}
                 key={i}
                 className="detail-card"
                 elevation={10}
@@ -84,7 +85,7 @@ function Details() {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                <Button variant="outlined" onClick={toEdit}>
+                <Button variant="contained" onClick={toEdit}>
                   EDIT
                 </Button>
               </Card>
