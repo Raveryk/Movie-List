@@ -75,6 +75,7 @@ function AddMovie() {
         <div>
           <FormControl spacing={2}>
             <TextField
+              style={{marginBottom:"10px"}}
               className="titleForm"
               label="Movie Title"
               variant="outlined"
@@ -82,6 +83,7 @@ function AddMovie() {
               onChange={handleTitle}
             />
             <TextField
+              style={{marginBottom:"10px"}}
               className="posterForm"
               label="Poster URL"
               variant="outlined"

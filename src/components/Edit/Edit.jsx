@@ -62,6 +62,7 @@ function Edit() {
         <div>
           <FormControl spacing={2}>
             <TextField
+              style={{marginBottom:"10px"}}
               className="titleEdit"
               label="Movie Title"
               variant="outlined"
