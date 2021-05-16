@@ -14,9 +14,10 @@
     margin-top: 6px;
 }
 
+.addPage {
+    background-color: whitesmoke;
+    margin-top: 3%;
+    padding-bottom: 20%;
+    padding-top: 1px;
+}
 
-/* .inputForm {
-    justify-content: center;
-    align-items: center;
-    margin: 3%;
-} */

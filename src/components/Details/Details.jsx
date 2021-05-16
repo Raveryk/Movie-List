@@ -45,14 +45,16 @@ function Details() {
 
     return(
         <>
-            <Button onClick={toList}>Back to List</Button>
+        <Button variant="outlined" style={{ marginBottom: "10px" }}
+            onClick={toList}>Back to List</Button>
+        <div className="detailPage">
             <div className="detail-card">
             {details.map((movie, i) => {
             return  <Card key ={i} className="detail-card" elevation={10}>
                         <CardActionArea >
                         
-                        <CardMedia>
-                            <p><img src={movie.poster} alt={movie.title}/></p>
+                        <CardMedia >
+                            <p><img className="detail-image" src={movie.poster} alt={movie.title}/></p>
                         </CardMedia>
                         <CardContent>
                             <Typography gutterBottom variant="h4" component="h2">{movie.title}</Typography>
@@ -69,6 +71,7 @@ function Details() {
             
     
 
+        </div>
         </>
     )
 }

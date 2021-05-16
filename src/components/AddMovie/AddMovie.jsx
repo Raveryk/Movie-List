@@ -64,11 +64,11 @@ history.push('/')
 
 
     return(
-        <>
-        <Typography >Add A Movie</Typography>
+        <div className="addPage">
 
         
         <Card className="addMovie" elevation={10}>
+        <Typography style={{marginBottom: "10px"}}>ADD A MOVIE</Typography>
             <div>
         <FormControl spacing={2}>
             <TextField className="titleForm" label="Movie Title" variant="outlined" value={newMovie.title} onChange={handleTitle}/>
@@ -93,7 +93,7 @@ history.push('/')
         </Card>
         
 
-        </>
+        </div>
     )
 }
 
