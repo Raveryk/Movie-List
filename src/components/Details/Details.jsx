@@ -41,6 +41,10 @@ function Details() {
 
     }
 
+    const toEdit = () => {
+        history.push(`/edit/${id}`);
+    }
+
 
 
     return(
@@ -50,7 +54,7 @@ function Details() {
         <div className="detailPage">
             <div className="detail-card">
             {details.map((movie, i) => {
-            return  <Card key ={i} className="detail-card" elevation={10}>
+            return  <Card key ={i} className="detail-card" elevation={10} onClick={toEdit}>
                         <CardActionArea >
                         
                         <CardMedia >
@@ -62,6 +66,7 @@ function Details() {
                             <Typography><p className="detail-description">{movie.description}</p></Typography>
                         </CardContent>
                         </CardActionArea>
+                        <Button variant="outlined" onClick={toEdit}>EDIT</Button>
                     </Card>
                     
             })}

@@ -74,4 +74,24 @@ router.post('/', (req, res) => {
   })
 })
 
+router.put('/edit/:id', (req, res) => {
+  console.log(req.params);
+  console.log(req.body);
+  const movieId = req.params.id;
+  const movieTitle = req.body.title;
+  const movieInfo = req.body.description;
+
+  let sqlText = 'UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;';
+
+  pool.query(sqlText, [movieTitle, movieInfo, movieId])
+    .then( response => {
+      res.sendStatus(200);
+      console.log('Successfully updated movie.')
+    })
+    .catch( error => {
+      console.log('Error updating movie:', error);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;

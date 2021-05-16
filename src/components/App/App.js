@@ -2,12 +2,13 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
-import AddMovie from '../AddMovie/AddMovie'
+import AddMovie from '../AddMovie/AddMovie';
+import Edit from '../Edit/Edit';
 
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <h1>THE MOVIES SAGA!</h1>
       
         <Router>       
           <Route path="/" exact>
@@ -20,6 +21,10 @@ function App() {
 
           <Route path="/add">
             <AddMovie />
+          </Route>
+
+          <Route path="/edit/:id">
+            <Edit />
           </Route>
         </Router>
       
